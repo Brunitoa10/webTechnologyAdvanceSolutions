@@ -1,11 +1,12 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     // Variables de estado
     let menuVisible = false;
-    const menu = document.getElementById("nav");
+    const menu = document.getElementById("seleccionOpciones");
     const links = document.querySelectorAll("nav a");
 
-    // Función para mostrar/ocultar el menú
+    /**
+     * Función para mostrar/ocultar el menú
+     */
     function mostrarOcultarMenu() {
         menu.classList.toggle("mostrar");
         menuVisible = !menuVisible;
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     links.forEach(link => {
         link.addEventListener("click", (event) => {
             event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-            const url = link.getAttribute("data-url");
+            const url = link.getAttribute("href"); // Usamos el href para obtener la ruta mapeada
             menu.classList.remove("mostrar");
             menuVisible = false;
             cambiarPagina(url);
