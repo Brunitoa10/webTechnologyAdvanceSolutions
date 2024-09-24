@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AplicacionControlador implements ControladorInicio, ControladorSoftware, ControladorHardware {
+public class AplicacionControlador extends implControladorSO
+        implements ControladorInicio, ControladorSoftware, ControladorHardware {
 
     @GetMapping("/inicio")
     public String mostrarInicio() {
-        System.out.println("EJECUTANDO INICIO");
         return "Index";
     }
 
@@ -23,4 +23,5 @@ public class AplicacionControlador implements ControladorInicio, ControladorSoft
         System.out.println("EJECUTANDO SOFTWARE");
         return "/seccionesGenerales/seccionSoftware/Software";
     }
+
 }
